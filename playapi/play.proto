@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package playapi;
+
+service Playground {
+  rpc DeepPing (Void) returns (StringObject) {}
+  rpc InvokePanic (Void) returns (Void) {}
+  rpc GetReceiveStream (Void) returns (stream StringObject) {}
+  rpc GetSendStream (stream StringObject) returns (Void) {}
+}
+
+message StringObject {
+  string value = 1;
+}
+
+message Void {}
